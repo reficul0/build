@@ -15,4 +15,4 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -f -T cmake-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ushebdim:$BINTRAY_API_KEY "https://api.bintray.com/content/reficul0/build/build/$TRAVIS_BUILD_NUMBER/cmake-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb"
+  - curl -f -T cmake-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ushebdim:$BINTRAY_API_KEY "https://api.bintray.com/content/reficul0/build/1/$TRAVIS_BUILD_NUMBER/cmake-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb"
