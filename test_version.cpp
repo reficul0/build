@@ -18,7 +18,7 @@ BOOST_AUTO_TEST_CASE(helloworld_test_version)
 BOOSA_AUTO_TEST_CASE(helloworld_test_build)
 {
 	auto *travis_build_number_as_str = getenv("TRAVIS_BUILD_NUMBER");
-	auto build_number = boost::lexical_cast<int>(travis_build_number_as_str)
+	auto build_number = boost::lexical_cast<int>(travis_build_number_as_str);
 	std::cout << "Build number: " << build_number << ";";
 	BOOST_CHECK(build_number > 0);
 }
