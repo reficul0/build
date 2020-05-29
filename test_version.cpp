@@ -11,14 +11,13 @@ BOOST_AUTO_TEST_SUITE(helloworld_test_suite)
 
 BOOST_AUTO_TEST_CASE(helloworld_test_version)
 {
-	BOOST_TEST_MESSAGE(std::string("Version: ") + boost::lexical_cast<std::string>(version()) + ";");
+	BOOST_TEST_MESSAGE("Version: " << boost::lexical_cast<std::string>(version()) << ";");
 }
 
 BOOST_AUTO_TEST_CASE(helloworld_test_build)
 {
 	auto *travis_build_number_as_str = getenv("TRAVIS_BUILD_NUMBER");
-	auto build_number = boost::lexical_cast<int>(travis_build_number_as_str);
-	BOOST_TEST_MESSAGE(std::string("Build number: ") + boost::lexical_cast<std::string>(build_number) + ";");
+	BOOST_TEST_MESSAGE("Build number: " << travis_build_number_as_str << ";");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
