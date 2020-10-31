@@ -4,6 +4,12 @@ project(cmake)
 
 set(Boost_DEBUG ON)
 
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    set(Boost_LIBRARY_DIR ${BOOST_ROOT}/stage64/lib
+elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
+    set(Boost_LIBRARY_DIR ${BOOST_ROOT}/stage/lib
+endif()
+
 find_package(Threads REQUIRED)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
