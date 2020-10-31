@@ -23,6 +23,8 @@ configuration:
     - Release
 
 environment:
+    BOOST_ROOT: C:\Libraries\boost_1_59_0
+    BOOST_LIBRARYDIR: C:\Libraries\boost_1_59_0\lib64-msvc-14.0
     matrix:
         # 2015
         - TOOLCHAIN: msvc14
