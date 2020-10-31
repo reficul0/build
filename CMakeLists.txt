@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.2)
 
 project(cmake)
 
+add_definitions(-DBOOST_ALL_NO_LIB)
+add_definitions(-DBOOST_ALL_DYN_LINK)
 set(Boost_DEBUG ON)
 
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
