@@ -1,3 +1,4 @@
+os: unstable
 image: Visual Studio 2015   # на этом VM-образе установлены все Visual Studio с 2008 по 2015
 
 init:
@@ -25,6 +26,7 @@ configuration:
 environment:
     BOOST_ROOT: C:\Libraries\boost_1_65_1
     BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib64-msvc-14.0
+    PATH: "%BOOST_LIBRARYDIR%;%PATH%"
     matrix:
         # 2015
         - TOOLCHAIN: msvc14
@@ -42,7 +44,7 @@ build_script:
     - mkdir build
     - cmake ./CMakeLists.txt
     - cmake --build .
-
+ 
 test_script:
     - ctest -VV -C Debug
 
