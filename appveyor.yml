@@ -6,7 +6,7 @@ init:
     # скорее всего, строчка ниже необязательна (так должно быть по умолчанию),
     # вместе с тем, она присутствует в официальных примерах, так что пусть будет:
     - git config --global core.autocrlf input
-
+    - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 clone_folder: c:\projects\polynom # выбираем локальную директорию для клонирования
 shallow_clone: true              # копируем только последний коммит, без истории (git clone --depth 1)
 
@@ -31,8 +31,6 @@ environment:
     matrix:
         # 2015
         - TOOLCHAIN: msvc14
-init:
-    - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
     # скрипт настройки среды и установки зависимостей:
     - call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
