@@ -1,6 +1,7 @@
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE helloworld_test_module
 
+#include <boost/test/included/unit_test.hpp>
 #include <iostream>
 #include <stdlib.h>
 #include <boost/test/unit_test.hpp>
