@@ -24,13 +24,15 @@ configuration:
     - Release
 
 environment:
+    APPVEYOR_RDP_PASSWORD: 1234as!&
     BOOST_ROOT: C:\Libraries\boost_1_65_1
     BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1
     PATH: "%BOOST_LIBRARYDIR%;%PATH%"
     matrix:
         # 2015
         - TOOLCHAIN: msvc14
-
+init:
+    - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
     # скрипт настройки среды и установки зависимостей:
     - call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
@@ -47,6 +49,8 @@ build_script:
  
 test_script:
     - ctest -VV -C Debug
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 artifacts:
     - path: ./$(configuration)/
