@@ -23,8 +23,8 @@ configuration:
     - Release
 
 environment:
-    BOOST_ROOT: C:\Libraries\boost_1_59_0
-    BOOST_LIBRARYDIR: C:\Libraries\boost_1_59_0\lib64-msvc-14.0
+  BOOST_ROOT: C:\Libraries\boost_1_65_1
+  BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib64-msvc-14.0
     matrix:
         # 2015
         - TOOLCHAIN: msvc14
@@ -43,9 +43,8 @@ build_script:
     - cmake ./CMakeLists.txt
     - cmake --build .
 
-#test_script:
-    # скрипт тестирования проекта:
-    #- ctest -C %CONFIGURATION% --output-on-failure
+test_script:
+    - ctest -VV -C Debug
 
 artifacts:
     - path: ./$(configuration)/
