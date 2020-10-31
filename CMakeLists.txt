@@ -5,10 +5,10 @@ project(cmake)
 set(Boost_DEBUG ON)
 
  if(CMAKE_SIZEOF_VOID_P EQUAL 8)
-	set(Boost_ARCHITECTURE "-x64")
+	set(Boost_ARCHITECTURE "-x86")
     # set(Boost_LIBRARY_DIR ${BOOST_ROOT}/stage64/lib)
  elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
-	set(Boost_ARCHITECTURE "-x86")
+	set(Boost_ARCHITECTURE "-x64")
     # set(Boost_LIBRARY_DIR ${BOOST_ROOT}/stage/lib)
  endif()
 
